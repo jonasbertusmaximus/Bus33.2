@@ -1,0 +1,45 @@
+name: Bus 33 Daten automatisch speichern
+
+on:
+  schedule:
+    # GitHub startet geplante Workflows nicht sekundengenau,
+    # versucht es aber ungefaehr alle 10 Minuten.
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bus33-data-update
+  cancel-in-progress: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+      - name: Node.js vorbereiten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Busdaten abrufen
+        run: node collect-bus-data.js
+
+      - name: Neue Daten ins Repository speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add bus_data.json
+
+          if git diff --staged --quiet; then
+            echo "Keine neuen Busdaten gefunden."
+          else
+            git commit -m "Busdaten automatisch aktualisieren"
+            git push
+          fi
