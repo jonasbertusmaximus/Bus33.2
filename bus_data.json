@@ -1,0 +1,42 @@
+[
+  {
+    "key": "Klosbach_2026-06-15T08:30:00Z",
+    "stop": "Klosbach",
+    "planned": "2026-06-15T08:30:00Z",
+    "delay": 2,
+    "direction": "Römerhof",
+    "category": "Bus",
+    "departed": false,
+    "fetchedAt": "2026-06-15T06:30:00Z"
+  },
+  {
+    "key": "Klosbach_2026-06-15T08:45:00Z",
+    "stop": "Klosbach",
+    "planned": "2026-06-15T08:45:00Z",
+    "delay": 0,
+    "direction": "Zürich, Wiedikon",
+    "category": "Bus",
+    "departed": false,
+    "fetchedAt": "2026-06-15T06:30:00Z"
+  },
+  {
+    "key": "Römerhof_2026-06-15T08:32:00Z",
+    "stop": "Römerhof",
+    "planned": "2026-06-15T08:32:00Z",
+    "delay": 1,
+    "direction": "Klosbach",
+    "category": "Bus",
+    "departed": false,
+    "fetchedAt": "2026-06-15T06:30:00Z"
+  },
+  {
+    "key": "Römerhof_2026-06-15T08:47:00Z",
+    "stop": "Römerhof",
+    "planned": "2026-06-15T08:47:00Z",
+    "delay": -1,
+    "direction": "Zürich, Hauptbahnhof",
+    "category": "Bus",
+    "departed": false,
+    "fetchedAt": "2026-06-15T06:30:00Z"
+  }
+]
